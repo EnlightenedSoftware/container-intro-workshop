@@ -1,0 +1,73 @@
+<pdp-configuration>
+<local-report-directory>/app/pdp-collection-reports</local-report-directory>
+<local-policy-directory>/app/local-pdp-policy-cache</local-policy-directory>
+<urn-alternative-ending-for-id>:mpeg21</urn-alternative-ending-for-id>
+<admin-password>secret</admin-password>
+        <!-- DDD -->
+        <urn-suffix>
+                <suffix>:(a[0-9]*)</suffix>
+                <role>OBJECT_ARTICLE_IMAGE</role>
+                <subidentifiergroup>1</subidentifiergroup>
+        </urn-suffix>
+        <urn-suffix>
+                <suffix>:(a[0-9]*):ocr</suffix>
+                <role>OBJECT_OCR</role>
+                <subidentifiergroup>1</subidentifiergroup>
+        </urn-suffix>
+        <urn-suffix>
+                <suffix>:(p[0-9]*):image</suffix>
+                <role>OBJECT_IMAGE</role>
+                <subidentifiergroup>1</subidentifiergroup>
+        </urn-suffix>
+        <urn-suffix>
+                <suffix>:(p[0-9]*):alto</suffix>
+                <role>OBJECT_ALTO</role>
+                <subidentifiergroup>1</subidentifiergroup>
+        </urn-suffix>
+        <urn-suffix>
+                <suffix>:pdf</suffix>
+                <role>OBJECT_PDF</role>
+        </urn-suffix>
+        <urn-suffix>
+                <suffix>:didl</suffix>
+                <role>OBJECT_DIDL</role>
+        </urn-suffix>
+        <urn-suffix>
+                <suffix>:(a[0-9]*):ocr</suffix>
+                <role>OBJECT_OCR</role>
+                <subidentifiergroup>1</subidentifiergroup>
+        </urn-suffix>
+        <!-- ABC -->
+        <urn-suffix>
+                <suffix>:([0-9]*):ocr</suffix>
+                <role>OBJECT_OCR</role>
+                <subidentifiergroup>1</subidentifiergroup>
+        </urn-suffix>
+        <urn-suffix>
+                <suffix>:([0-9]*):image</suffix>
+                <role>OBJECT_IMAGE</role>
+                <subidentifiergroup>1</subidentifiergroup>
+        </urn-suffix>
+        <urn-suffix>
+                <suffix>:([0-9]*):alto</suffix>
+                <role>OBJECT_ALTO</role>
+                <subidentifiergroup>1</subidentifiergroup>
+        </urn-suffix>
+        <!-- ANP -->
+        <urn-suffix>
+                <suffix>:ocr</suffix>
+                <role>OBJECT_OCR</role>
+        </urn-suffix>
+            <urn-suffix>
+                <suffix>:image</suffix>
+                <role>OBJECT_IMAGE</role>
+        </urn-suffix>
+        <urn-suffix>
+                <suffix>:alto</suffix>
+                <role>OBJECT_ALTO</role>
+        </urn-suffix>
+        <urn-suffix>
+       <suffix>:xml</suffix>
+       <role>OBJECT_XML</role>
+    </urn-suffix>
+</pdp-configuration>

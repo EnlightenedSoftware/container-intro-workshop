@@ -1,0 +1,58 @@
+swarm:
+ undertow:
+   servers:
+    default-server:
+     http-listeners:
+      default:
+        record-request-start-time: true
+        proxy-address-forwarding: true
+     hosts:
+      default-host:     
+       access-log-setting:
+         extended: false
+         pattern: "%h %l %u %t \"%r\" %s %b \"%{i,Referer}\" \"%{i,User-agent}\" %D %{i,x-forwarded-for} \"%I\""
+         directory: /var/log
+         prefix: access.
+         suffix: log
+         worker: "default"
+ logging:
+    #TODO: use own log4j add the moment, till audit trail functionality is refactored
+    use-deployment-logging-config: true
+    pattern-formatters:
+      STANDARD_PATTERN:
+        pattern: "%d %p %t %c - %m%n"
+    file-handlers:
+      FILE:
+        file:
+          path: /var/log/toegangsrechten-pdp.log
+        named-formatter: STANDARD_PATTERN
+    root-logger:
+      handlers:
+       - FILE
+      level: INFO
+
+ datasources:
+  data-sources:
+     ToegangsrechtenDS:
+      driver-name: oracle
+      jndi-name: java:jboss/datasources/ToegangsrechtenDS
+      pool-name: axioDB
+      use-java-context: true
+      use-ccm: true
+      connection-url: jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST= (ADDRESS=(HOST=REPLACE_WITH_HOSTNAME)(PROTOCOL=TCP)(PORT=1521)) )(CONNECT_DATA=(SERVICE_NAME=vgao)))
+      valid-connection-checker-class-name: "org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker"
+      stale-connection-checker-class-name: "org.jboss.jca.adapters.jdbc.extensions.oracle.OracleStaleConnectionChecker"
+      exception-sorter-class-name: "org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter"
+      user-name: REPLACE_WITH_USERNAME
+      password: REPLACE_WITH_PASSWOORD
+ http:
+    port: 8080
+
+ https:
+    port: 8443
+    certificate:
+     generate: true
+         
+ management:
+    http: 
+      disable: true
